@@ -31,3 +31,8 @@ disableLanguages = ["en"]
   showRecent = true
   showRecentItems = 10     # 최근 글 10개 표시
   mainSections = ["series"] # posts 폴더의 글을 홈에 표시
+
+[params.taxonomy]
+  groupByYear = false   # 연도별로 카드를 묶어서 보여주는 기능을 끕니다 (2023, 0001 헤더 제거)
+  showTime = false      # 시리즈 카드 옆에 날짜가 나오는 것이 싫다면 이것도 함께 꺼주면 깔끔합니다
+  showTermCount = true  # 시리즈에 포함된 글 개수를 보여줄지 여부 (선택사항)

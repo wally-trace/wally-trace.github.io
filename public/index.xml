@@ -7,18 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>© 2025 </copyright>
-    <lastBuildDate>Sat, 23 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>1. Hugo 설치하기</title>
-      <link>http://localhost:1313/series/leetcode75/01-install/</link>
-      <pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/series/leetcode75/01-install/</guid>
-      <description>여기부터 본문을 작성하면 됩니다. Hugo 설치는 매우 간단합니다…
-</description>
-      
-    </item>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>
