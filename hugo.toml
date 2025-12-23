@@ -1,0 +1,33 @@
+baseURL = "https://wally-trace.github.io/"
+title = "Wally Trace"
+theme = "blowfish"
+languageCode = "ko-kr"
+defaultContentLanguage = "ko"
+disableLanguages = ["en"]
+
+# [시리즈 기능 활성화]
+[taxonomies]
+  series = "series"
+
+# [상단 메뉴 설정]
+[[menu.main]]
+  name = "Series"
+  url = "/series/"
+  weight = 1
+
+[params]
+  # 시리즈 카드 뷰 설정 (CPUU님 스타일 핵심)
+  showSeries = true
+  showSeriesImage = true
+  seriesCardView = true    # 목록이 아닌 바둑판 카드형태로 설정
+  
+  # 기타 UI 설정
+  showLanguageSwitcher = false # 다국어 비활성
+  backgroundCode = false
+
+# [홈 화면 설정] - 최근 글 리스트 형태
+[params.homepage]
+  layout = "list"          # 홈은 리스트 형태
+  showRecent = true
+  showRecentItems = 10     # 최근 글 10개 표시
+  mainSections = ["series"] # posts 폴더의 글을 홈에 표시

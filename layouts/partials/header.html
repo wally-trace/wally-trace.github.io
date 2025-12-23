@@ -1,0 +1,48 @@
+<header>
+  <div class="site-title">
+    <a href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
+  </div>
+
+  <nav class="main-menu">
+    <ul>
+      {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+
+  {{ if .Site.Params.header.showLanguageSelector }}
+    <div class="language-selector">
+      <ul>
+        {{ range .Site.Languages }}
+          {{ if ne .Lang $.Lang }}
+            <li>
+              <a href="{{ .Lang | relLangURL }}">{{ .LanguageName }}</a>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+  {{ end }}
+</header>
+
+<style>
+/* 간단한 스타일 예시 */
+.language-selector ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.language-selector li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.language-selector li a:hover {
+  text-decoration: underline;
+}
+</style>
+
