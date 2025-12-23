@@ -2,7 +2,7 @@ name: Deploy Hugo site to Pages
 
 on:
   push:
-    branches: ["main"] # 본인의 기본 브랜치가 master라면 master로 수정
+    branches: ["main"]  # 브랜치명이 master라면 master로 수정하세요.
 
 permissions:
   contents: read
@@ -17,10 +17,17 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-      - name: Setup Hugo
-        uses: actions/configure-pages@v5
+          fetch-depth: 0
+
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true  # Blowfish 테마 필수 설정
+
       - name: Build with Hugo
         run: hugo --minify
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
