@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Review mock coding interview on Wally Trace</title>
+    <link>http://localhost:1313/series/coding-interview/</link>
+    <description>Recent content in Review mock coding interview on Wally Trace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Wed, 31 Dec 2025 14:57:30 -0500</lastBuildDate><atom:link href="http://localhost:1313/series/coding-interview/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Review 12/31</title>
+      <link>http://localhost:1313/series/coding-interview/review-1231/</link>
+      <pubDate>Wed, 31 Dec 2025 14:57:30 -0500</pubDate>
+      
+      <guid>http://localhost:1313/series/coding-interview/review-1231/</guid>
+      <description> LeeCode ID: #643 Maximum Average Subarray 1 (Programming language: C++) The “Off-By-One” Blid Spot out-of-bound가 발생할 수 있는 코드를 작성했음. index를 iterate할 때, 잘 따져봐야 함. </description>
+      
+    </item>
+    
+    <item>
+      <title>Classic Patterns</title>
+      <link>http://localhost:1313/series/coding-interview/classic-patterns/</link>
+      <pubDate>Thu, 25 Dec 2025 12:36:56 -0500</pubDate>
+      
+      <guid>http://localhost:1313/series/coding-interview/classic-patterns/</guid>
+      <description>1. Array/String # $O(N^2) \rightarrow O(N)$를 요구하는 문제에서 자주 등장함.
+Two Pointer: 두 개의 포인터를 양 끝이나 특정 위치에서 시작하여 서로 조작하며 조건을 만족하는 값을 찾는다. 사용 시기: 정렬된 배열에서 쌍(pari) 찾기, 문자열 뒤집기, Palindrome 확인 Sliding Window: 고정되거나 가변적인 크기의 창(windows)을 데이터 위에서 이동시키며 부분 배열/문자열의 특성을 계산한다. (3Sum, Container w/ most water, Trapping rain water) 사용 시기: 연속된 부분 배열(subarray)의 최대/최소 합, 가장 긴 부분 문자열(substring) 문제 (Longest substring w/o repeating characters, Minimun window substring) 2. Graphs & Search # BFS: Queue를 사용하여 가까운 노드부터 탐색한다. 사용 시기: 가중치가 없는 그래프에서 최단 거리(shortest path), 레벨(level) 단위 탐색 (Word ladder, Rotting oranges) DFS: Stack이나 재귀를 사용하여 갈 수 있는 만큼 깊게 탐색한다. 사용 시기: 미로 찾기, 연결된 구성요소(Connected Components) 찾기, 사이클 탐지 (Number of islands, Max area of island) Backtracking: DFS의 일종으로, 가능한 모든 경우의 수를 탐색하되 조건에 맞지 않으면 되돌아가서(pruning) 다시 탐색한다. 사용 시기: 순열(permutation), 조합(combination), 부분 집합(subsets), 스도쿠/N-Queen 문제. (Generate parentheses, Subsets) Topological Sort: 방향성 있는 비순호나 그래프(DAG)에서 순서를 거스르지 않고 나열하는 알고리즘. (주로 Indegree방식 사용) 사용 시기: 선수과목(prerequisite), 빌드 순서(build order), 의존성 해결 문제 (Courser schedule, Alien dictionary) Union-Find / Disjoint Set): 여러 노드가 서로 같은 집합에 속해 있는지 빠르게 확인하고 합치는 알고리즘. 사용 시기: 그래프의 연결성 확인, 무방향 그래프 사이클 탐지, 네트워크 연결 (Number of connected components, Redundant connection) </description>
+      
+    </item>
+    
+    <item>
+      <title>Review 12/25</title>
+      <link>http://localhost:1313/series/coding-interview/review-1225/</link>
+      <pubDate>Thu, 25 Dec 2025 11:40:30 -0500</pubDate>
+      
+      <guid>http://localhost:1313/series/coding-interview/review-1225/</guid>
+      <description>Find 3 easy problems involving arrays.
+Do not write code immediately. Identify the Pattern (Two pointer? Hash Map?). Create a Trace Table for an edge case on paper. Write the solution trying to use the fewest lines possible. LeeCode ID: #283 Move Zeroes (Programming language: C) 아직 two pointers 방식을 편하게 사용하는 것이 서툰 것 같다. (Classic pattern에 대한 연습 필요: Sliding Window, Slow/Fast Pointer, Two-Pointer)
+프로그래밍의 logic은 맞지만, 복잡(multiple if statements)하다. Google Standard: Engineers look for standard patterns. This problem is a classic “Slow & Fast Pointer” pattern (or Partition pattern). Golden Logic: “Iterate through the array. If I see a non-zero, move it to the ‘slow’ pointer position and advance the ‘slow’ pointer. TODO Stop tring to solve every movement logically. Start categorizing problems. Is this a Sliding Window? Is this a Slow/Fast Pointer? Is this a Two-Pointer from ends? Why? Using a standard pattern reduces liens of code by 50% and eliminates bugs like the “consecutive zero” error you had. 손으로 테스트케이스를 돌려보는 작업을 해야 한다.
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Review 12/23</title>
+      <link>http://localhost:1313/series/coding-interview/review-1223/</link>
+      <pubDate>Tue, 23 Dec 2025 16:11:36 -0500</pubDate>
+      
+      <guid>http://localhost:1313/series/coding-interview/review-1223/</guid>
+      <description> LeeCode ID: #345 Reverse Vowels of a String (Programming language: C)
+String을 C로 처리하는데 시간이 많이 걸렸다. C의 string 관련 함수는 모두 null character(’\0’)를 포함하지 않기 때문에 개발자가 직접 넣어줘야 함 (strncpy) Edge case를 code로 표현하는데 서툴렀다. pointer offset을 debugging 하느라 hieh-level logic에 대한 생각을 많이 하지 못했다. 주어진 test case에 대해서 올바르게 동작하는지 확인을 잘 못했다. Interviewer가 제공해준 hint를 catch하고 코드로 작업하는 과정을 잘하지 못했고, 나의 fixing 과정을 설명하지 않았다. (큰 문제임) LeetCode ID: #334 Increasing Triplet Subsequence (Programming language: C)
+</description>
+      
+    </item>
+    
+  </channel>
+</rss>

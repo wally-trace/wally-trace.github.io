@@ -1,0 +1,1115 @@
+<!doctype html>
+<html
+  lang="ko-kr"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ko-kr">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Map &middot; Wally Trace</title>
+    <meta name="title" content="Map &middot; Wally Trace">
+  
+
+  
+  
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/series/c&#43;&#43;/map/">
+  
+
+  
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/series/c&#43;&#43;/map/">
+  <meta property="og:site_name" content="Wally Trace">
+  <meta property="og:title" content="Map">
+  <meta property="og:description" content="C&#43;&#43;로 LeetCode에서 HashMap을 사용하려면 **std::unordered_map**을 사용해야 합니다.
+C&#43;&#43; 문법이 낯설더라도 알고리즘 문제 풀이에 필요한 핵심 패턴은 정해져 있습니다. 가장 자주 쓰이는 문법과 대표적인 예제인 Two Sum 문제를 통해 설명해 드리겠습니다.
+1. C&#43;&#43; HashMap 핵심 문법 (std::unordered_map) # C&#43;&#43;에서는 map이 아닌 unordered_map이 해시맵(Hash Table)입니다. (map은 정렬된 트리 구조라 속도가 다릅니다.)
+1) 선언 및 라이브러리 추가 # #include &lt;unordered_map&gt; // 필수 헤더 #include &lt;iostream&gt; using namespace std; // std:: 생략 가능 // 선언: unordered_map&lt;Key타입, Value타입&gt; 변수명; unordered_map&lt;string, int&gt; myMap; 2) 데이터 추가 (Insert) # myMap[&#34;apple&#34;] = 10; // 가장 직관적인 방법 (추천) myMap.insert({&#34;banana&#34;, 20}); 3) 데이터 검색 (Find) - 가장 중요! # LeetCode에서 “이 키가 존재하는가?“를 확인할 때 find() 메서드를 사용합니다.">
+  <meta property="og:locale" content="ko_kr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="series">
+    <meta property="article:published_time" content="2025-12-31T10:15:03-05:00">
+    <meta property="article:modified_time" content="2025-12-31T10:15:03-05:00">
+      <meta property="og:see_also" content="http://localhost:1313/series/c&#43;&#43;/smart-pointer/">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Map">
+  <meta name="twitter:description" content="C&#43;&#43;로 LeetCode에서 HashMap을 사용하려면 **std::unordered_map**을 사용해야 합니다.
+C&#43;&#43; 문법이 낯설더라도 알고리즘 문제 풀이에 필요한 핵심 패턴은 정해져 있습니다. 가장 자주 쓰이는 문법과 대표적인 예제인 Two Sum 문제를 통해 설명해 드리겠습니다.
+1. C&#43;&#43; HashMap 핵심 문법 (std::unordered_map) # C&#43;&#43;에서는 map이 아닌 unordered_map이 해시맵(Hash Table)입니다. (map은 정렬된 트리 구조라 속도가 다릅니다.)
+1) 선언 및 라이브러리 추가 # #include &lt;unordered_map&gt; // 필수 헤더 #include &lt;iostream&gt; using namespace std; // std:: 생략 가능 // 선언: unordered_map&lt;Key타입, Value타입&gt; 변수명; unordered_map&lt;string, int&gt; myMap; 2) 데이터 추가 (Insert) # myMap[&#34;apple&#34;] = 10; // 가장 직관적인 방법 (추천) myMap.insert({&#34;banana&#34;, 20}); 3) 데이터 검색 (Find) - 가장 중요! # LeetCode에서 “이 키가 존재하는가?“를 확인할 때 find() 메서드를 사용합니다.">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.471897447581d019b7dbf035a0df16880e99b1536283779d349613a1106d0d59e2ba51127129c70db3ef3ce57d21192548e0efe4db31201db0453de09d9930a6.css"
+    integrity="sha512-RxiXRHWB0Bm32/A1oN8WiA6ZsVNig3edNJYToRBtDVniulEScSnHDbPvPOV9IRklSODv5NsxIB2wRT3gnZkwpg==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.174bcf70e6e1263b171d57722e12e947c094a38b89ba10267b8744db900c25af6426a478c44554553ac180127863a0014c61409cb86b8052ec370dd7cc92d593.js"
+      integrity="sha512-F0vPcObhJjsXHVdyLhLpR8CUo4uJuhAme4dE25AMJa9kJqR4xEVUVTrBgBJ4Y6ABTGFAnLhrgFLsNw3XzJLVkw=="
+      data-copy="복사"
+      data-copied="복사되었습니다"></script>
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Series",
+    "name": "Map",
+    "headline": "Map",
+    
+    "inLanguage": "ko-kr",
+    "url" : "http://localhost:1313/series/c++/map/",
+    "author" : {
+      "@type": "Person",
+      "name": ""
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-12-31T10:15:03-05:00",
+    "datePublished": "2025-12-31T10:15:03-05:00",
+    
+    "dateModified": "2025-12-31T10:15:03-05:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "870"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        본문으로 건너뛰기
+      </a>
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between py-6 md:justify-start gap-x-3 pt-[2px] pr-2 md:pr-4 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium">
+          Wally Trace
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/series/"
+  
+  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+  aria-label="Series"
+  title="">
+  
+  
+    <p class="text-base font-medium">
+      Series
+    </p>
+  
+</a>
+
+
+
+      
+    
+
+    
+
+    
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="검색하기 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="검색하기 (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 me-1">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none text-end max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/series/"
+    
+    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+    aria-label="Series"
+    title="">
+    
+    
+      <p class="text-bg font-bg">
+        Series
+      </p>
+    
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Map
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-31T10:15:03-05:00">2025년 12월 31일</time><span class="px-2 text-primary-500">&middot;</span><span>870 단어수</span><span class="px-2 text-primary-500">&middot;</span><span title="읽는 시간">5 분</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+  <details
+    class="mt-2 mb-5 overflow-hidden rounded-lg ms-0 ps-5"
+    >
+    
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 -ms-5 ps-5 dark:bg-primary-800 dark:text-neutral-100">
+    c&#43;&#43; -
+    이 글은 시리즈의 일부입니다.
+  </summary>
+  
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        부분 :
+        이 글
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/series/c&#43;&#43;/smart-pointer/">
+          부분 1:
+          Smart Pointer
+        </a>
+      </div>
+    
+  
+
+
+  </details>
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>C++로 LeetCode에서 HashMap을 사용하려면 **<code>std::unordered_map</code>**을 사용해야 합니다.</p>
+<p>C++ 문법이 낯설더라도 알고리즘 문제 풀이에 필요한 핵심 패턴은 정해져 있습니다. 가장 자주 쓰이는 문법과 대표적인 예제인 <strong>Two Sum</strong> 문제를 통해 설명해 드리겠습니다.</p>
+<hr>
+
+<h3 class="relative group">1. C++ HashMap 핵심 문법 (<code>std::unordered_map</code>)
+    <div id="1-c-hashmap-핵심-문법-stdunordered_map" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-c-hashmap-%ed%95%b5%ec%8b%ac-%eb%ac%b8%eb%b2%95-stdunordered_map" aria-label="앵커">#</a>
+    </span>
+    
+</h3>
+<p>C++에서는 <code>map</code>이 아닌 <code>unordered_map</code>이 해시맵(Hash Table)입니다. (<code>map</code>은 정렬된 트리 구조라 속도가 다릅니다.)</p>
+
+<h4 class="relative group">1) 선언 및 라이브러리 추가
+    <div id="1-선언-및-라이브러리-추가" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-%ec%84%a0%ec%96%b8-%eb%b0%8f-%eb%9d%bc%ec%9d%b4%eb%b8%8c%eb%9f%ac%eb%a6%ac-%ec%b6%94%ea%b0%80" aria-label="앵커">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unordered_map&gt;</span><span style="color:#75715e"> </span><span style="color:#75715e">// 필수 헤더
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std; <span style="color:#75715e">// std:: 생략 가능
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 선언: unordered_map&lt;Key타입, Value타입&gt; 변수명;
+</span></span></span><span style="display:flex;"><span>unordered_map<span style="color:#f92672">&lt;</span>string, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> myMap;</span></span></code></pre></div></div>
+
+<h4 class="relative group">2) 데이터 추가 (Insert)
+    <div id="2-데이터-추가-insert" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ec%b6%94%ea%b0%80-insert" aria-label="앵커">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>myMap[<span style="color:#e6db74">&#34;apple&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;        <span style="color:#75715e">// 가장 직관적인 방법 (추천)
+</span></span></span><span style="display:flex;"><span>myMap.insert({<span style="color:#e6db74">&#34;banana&#34;</span>, <span style="color:#ae81ff">20</span>});</span></span></code></pre></div></div>
+
+<h4 class="relative group">3) 데이터 검색 (Find) - <strong>가장 중요!</strong>
+    <div id="3-데이터-검색-find---가장-중요" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ea%b2%80%ec%83%89-find---%ea%b0%80%ec%9e%a5-%ec%a4%91%ec%9a%94" aria-label="앵커">#</a>
+    </span>
+    
+</h4>
+<p>LeetCode에서 &ldquo;이 키가 존재하는가?&ldquo;를 확인할 때 <code>find()</code> 메서드를 사용합니다.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// &#34;apple&#34;이라는 키가 있는지 확인
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (myMap.find(<span style="color:#e6db74">&#34;apple&#34;</span>) <span style="color:#f92672">!=</span> myMap.end()) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 찾는 키가 맵의 끝(end)이 아니라면 존재한다는 뜻
+</span></span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Found! Value: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> myMap[<span style="color:#e6db74">&#34;apple&#34;</span>] <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Not Found&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+<blockquote ><p><strong>주의:</strong> C++에서는 Python의 <code>if key in dict:</code> 처럼 간단하지 않고, <strong>이터레이터(Iterator)가 끝(<code>end()</code>)에 도달했는지</strong>로 존재 여부를 판단합니다.</p>
+<ul>
+<li><code>auto k = myMap[&quot;apple&quot;]</code>처럼 대괄호를 사용해서 값을 찾으면, 맵에 키가 없을 경우 자동으로 **새로운 요소를 삽입(Default insertion)**을 하는 부작용이 있을 수 있다.</li>
+</ul>
+</blockquote>
+<h4 class="relative group">4) 순회 (Loop)
+    <div id="4-순회-loop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#4-%ec%88%9c%ed%9a%8c-loop" aria-label="앵커">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// auto 키워드를 쓰면 타입 추론이 되어 편리합니다.
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> <span style="color:#66d9ef">const</span><span style="color:#f92672">&amp;</span> [key, val] <span style="color:#f92672">:</span> myMap) {
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> key <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> val <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">2. 실전 적용: LeetCode #1 Two Sum
+    <div id="2-실전-적용-leetcode-1-two-sum" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-%ec%8b%a4%ec%a0%84-%ec%a0%81%ec%9a%a9-leetcode-1-two-sum" aria-label="앵커">#</a>
+    </span>
+    
+</h3>
+<p>이 문제는 &ldquo;배열에서 두 수를 더해 Target이 되는 두 인덱스를 찾아라&quot;는 문제입니다.</p>
+<p><strong>전략:</strong></p>
+<ol>
+<li>숫자를 하나씩 확인합니다.</li>
+<li><code>Target - 현재숫자</code> (필요한 짝꿍 숫자)가 이미 해시맵에 있는지 확인합니다.</li>
+<li>있으면 정답을 반환하고, 없으면 <code>현재숫자</code>와 <code>인덱스</code>를 해시맵에 저장합니다.</li>
+</ol>
+
+<h4 class="relative group">C++ 솔루션 코드
+    <div id="c-솔루션-코드" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#c-%ec%86%94%eb%a3%a8%ec%85%98-%ec%bd%94%eb%93%9c" aria-label="앵커">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unordered_map&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> twoSum(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> nums, <span style="color:#66d9ef">int</span> target) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Key: 숫자 값, Value: 그 숫자의 인덱스
+</span></span></span><span style="display:flex;"><span>        unordered_map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> map;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> nums.size(); i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> complement <span style="color:#f92672">=</span> target <span style="color:#f92672">-</span> nums[i]; <span style="color:#75715e">// 찾아야 하는 짝꿍 숫자
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 1. 맵에서 짝꿍 숫자가 있는지 확인 (find)
+</span></span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (map.find(complement) <span style="color:#f92672">!=</span> map.end()) {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 찾았다면 {짝꿍의 인덱스, 현재 인덱스} 반환
+</span></span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> {map[complement], i};
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 2. 못 찾았다면 현재 숫자와 인덱스를 맵에 저장
+</span></span></span><span style="display:flex;"><span>            map[nums[i]] <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {}; <span style="color:#75715e">// 정답이 없는 경우 (문제 조건상 도달 안 함)
+</span></span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};</span></span></code></pre></div></div>
+<hr>
+
+<h3 class="relative group">3. C++ 문제 풀이 팁 (Cheat Sheet)
+    <div id="3-c-문제-풀이-팁-cheat-sheet" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-c-%eb%ac%b8%ec%a0%9c-%ed%92%80%ec%9d%b4-%ed%8c%81-cheat-sheet" aria-label="앵커">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>
+<p><strong><code>auto</code> 키워드 활용:</strong> 변수 타입을 일일이 쓰기 귀찮거나 모를 때 <code>auto</code>를 쓰면 컴파일러가 알아서 맞춰줍니다.</p>
+</li>
+<li>
+<p>예: <code>auto it = map.find(key);</code></p>
+</li>
+<li>
+<p><strong>대괄호 <code>[]</code> 주의:</strong> <code>val = map[key]</code>를 할 때, 만약 <code>key</code>가 맵에 없으면 C++은 <strong>자동으로 키를 생성하고 값을 0으로 초기화</strong>해버립니다. 단순히 있는지 확인할 때는 반드시 <code>find()</code>를 쓰세요.</p>
+</li>
+<li>
+<p><strong>헤더 파일:</strong> LeetCode 에디터는 대부분 헤더가 포함되어 있지만, 로컬에서 연습할 때는 <code>#include &lt;unordered_map&gt;</code>, <code>#include &lt;vector&gt;</code>, <code>#include &lt;string&gt;</code> 등을 꼭 넣어주세요.</p>
+</li>
+</ul>
+<hr>
+
+<h3 class="relative group">4. <code>map</code> vs <code>unordered_map</code> 차이점
+    <div id="4-map-vs-unordered_map-차이점" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#4-map-vs-unordered_map-%ec%b0%a8%ec%9d%b4%ec%a0%90" aria-label="앵커">#</a>
+    </span>
+    
+</h3>
+<p>두 컨테이너 모두 <code>key-value</code> 쌍을 저장하지만, <strong>내부 구현 방식</strong>과 <strong>성능</strong>에서 결정적인 차이가 있습니다. LeetCode 같은 알고리즘 테스트에서는 <strong>속도</strong> 때문에 90% 이상 <code>unordered_map</code>을 사용합니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>비교 항목</th>
+          <th><code>std::map</code></th>
+          <th><code>std::unordered_map</code></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>내부 구조</strong></td>
+          <td><strong>Red-Black Tree</strong> (이진 탐색 트리)</td>
+          <td><strong>Hash Table</strong> (해시 테이블)</td>
+      </tr>
+      <tr>
+          <td><strong>정렬 여부</strong></td>
+          <td>Key를 기준으로 <strong>자동 정렬됨</strong> (오름차순)</td>
+          <td><strong>정렬되지 않음</strong> (입력 순서와 무관하게 뒤섞임)</td>
+      </tr>
+      <tr>
+          <td><strong>탐색 시간</strong></td>
+          <td>- 데이터가 많아지면 조금 느려짐</td>
+          <td>**** - 데이터 양과 상관없이 즉시 찾음 (평균)</td>
+      </tr>
+      <tr>
+          <td><strong>사용 시점</strong></td>
+          <td>순서가 중요하거나 범위 검색(Range Search)이 필요할 때</td>
+          <td><strong>단순히 데이터 존재 여부나 값을 빨리 찾을 때</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>요약:</strong></p>
+<ul>
+<li>문제에서 &ldquo;순서대로 출력하라&quot;는 말이 없으면 무조건 **<code>unordered_map</code>**이 빠릅니다.</li>
+<li><code>map</code>은 데이터를 넣을 때마다 정렬 비용이 발생하여  시간이 걸리지만, <code>unordered_map</code>은 $O(1)$입니다.</li>
+</ul>
+<hr>
+
+<h3 class="relative group">5. <code>for</code> 문에서 <code>const</code>와 <code>&amp;</code>를 사용하는 이유
+    <div id="5-for-문에서-const와-를-사용하는-이유" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#5-for-%eb%ac%b8%ec%97%90%ec%84%9c-const%ec%99%80-%eb%a5%bc-%ec%82%ac%ec%9a%a9%ed%95%98%eb%8a%94-%ec%9d%b4%ec%9c%a0" aria-label="앵커">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// 예시 코드
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> <span style="color:#66d9ef">const</span><span style="color:#f92672">&amp;</span> [key, val] <span style="color:#f92672">:</span> myMap) { ... }</span></span></code></pre></div></div>
+<p>이 구문은 효율성과 안전성을 위해 사용하는 C++의 표준적인 관용구(Idiom)입니다. <code>&amp;</code>와 <code>const</code>를 나눠서 설명해 드릴게요.</p>
+
+<h4 class="relative group">1) <code>&amp;</code> (Reference, 참조)를 쓰는 이유: &ldquo;복사 비용 방지&rdquo;
+    <div id="1--reference-참조를-쓰는-이유-복사-비용-방지" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1--reference-%ec%b0%b8%ec%a1%b0%eb%a5%bc-%ec%93%b0%eb%8a%94-%ec%9d%b4%ec%9c%a0-%eb%b3%b5%ec%82%ac-%eb%b9%84%ec%9a%a9-%eb%b0%a9%ec%a7%80" aria-label="앵커">#</a>
+    </span>
+    
+</h4>
+<p>C++은 기본적으로 변수를 대입하면 **값을 복사(Copy)**합니다.</p>
+<ul>
+<li><code>&amp;</code> 없이 <code>for (auto item : myMap)</code>을 쓰면, 맵에 있는 데이터를 매 반복마다 <strong>새로운 메모리 공간에 복사</strong>해서 <code>item</code> 변수를 만듭니다.</li>
+<li>데이터가 단순 <code>int</code>라면 상관없지만, 문자열(<code>string</code>)이나 거대한 객체라면 복사하는 데 시간이 오래 걸리고 메모리 낭비가 심합니다.</li>
+<li><code>&amp;</code>를 붙이면 &ldquo;복사하지 말고, 맵에 있는 <strong>원본 데이터 자체를 가리켜라(참조해라)</strong>&ldquo;는 뜻이 되어 속도가 훨씬 빨라집니다.</li>
+<li>하지만, Primitive type (<code>int</code>, <code>char</code>, <code>float</code>, <code>double</code>, <code>bool</code>)과 같이 크기가 작고 복사가 저렴한 경우에는 <code>&amp;</code> 대신 값을 바로 복사하는 것이 더 저렴하다.
+<ul>
+<li>보통 <code>int</code>는 4 바이트이기 때문에 한번에 8바이트를 처리하는 64비트(8바이트)시스템에서 <code>int</code>를 복사하는 것이 더 권장된다. 메모리 주소(8바이트 포인터)를 참조(dereference)하는 추가 단계가 없기 때문임.</li>
+</ul>
+</li>
+</ul>
+
+<h4 class="relative group">2) <code>const</code> (Constant, 상수)를 쓰는 이유: &ldquo;수정 방지(안전)&rdquo;
+    <div id="2-const-constant-상수를-쓰는-이유-수정-방지안전" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-const-constant-%ec%83%81%ec%88%98%eb%a5%bc-%ec%93%b0%eb%8a%94-%ec%9d%b4%ec%9c%a0-%ec%88%98%ec%a0%95-%eb%b0%a9%ec%a7%80%ec%95%88%ec%a0%84" aria-label="앵커">#</a>
+    </span>
+    
+</h4>
+<ul>
+<li><code>&amp;</code>를 써서 원본을 참조하고 있는데, 실수로 반복문 안에서 <code>key</code>나 <code>val</code> 값을 바꿔버리면 <strong>원본 데이터가 망가집니다.</strong></li>
+<li><code>const</code>를 붙이면 &ldquo;원본을 보기는 하되, <strong>절대 수정하지 않겠다(Read-only)</strong>&ldquo;라고 선언하는 것입니다. 컴파일러가 수정 시도를 에러로 잡아줍니다.</li>
+</ul>
+<p><strong>결론:</strong> Primitive type이 아닌 데이터를 단순히 읽기만 할 때는 **<code>const &amp;</code> (읽기 전용 참조)**가 국룰(Best Practice)입니다.</p>
+<hr>
+
+<h3 class="relative group">6. <code>return { }</code> 의 의미
+    <div id="6-return---의-의미" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#6-return---%ec%9d%98-%ec%9d%98%eb%af%b8" aria-label="앵커">#</a>
+    </span>
+    
+</h3>
+<p><code>return {}</code>은 C++11부터 도입된 <strong>유니폼 초기화(Uniform Initialization)</strong> 문법입니다. 함수의 **반환 타입(Return Type)**에 맞춰서 &ldquo;알아서 적절한 객체를 만들어 반환하라&quot;는 뜻입니다.</p>
+
+<h4 class="relative group">상황 1: 정답을 못 찾았을 때 (빈 객체 반환)
+    <div id="상황-1-정답을-못-찾았을-때-빈-객체-반환" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%ec%83%81%ed%99%a9-1-%ec%a0%95%eb%8b%b5%ec%9d%84-%eb%aa%bb-%ec%b0%be%ec%95%98%ec%9d%84-%eb%95%8c-%eb%b9%88-%ea%b0%9d%ec%b2%b4-%eb%b0%98%ed%99%98" aria-label="앵커">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> twoSum(...) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ... 로직 ...
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {}; <span style="color:#75715e">// &#34;빈 vector&lt;int&gt;를 만들어서 반환해&#34;
+</span></span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+<ul>
+<li>함수의 반환 타입이 <code>vector&lt;int&gt;</code>이므로, <code>return vector&lt;int&gt;();</code>와 똑같은 의미입니다. 즉, 비어있는 벡터 <code>[]</code>를 반환합니다.</li>
+</ul>
+
+<h4 class="relative group">상황 2: 정답을 찾았을 때 (값 채워서 반환)
+    <div id="상황-2-정답을-찾았을-때-값-채워서-반환" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%ec%83%81%ed%99%a9-2-%ec%a0%95%eb%8b%b5%ec%9d%84-%ec%b0%be%ec%95%98%ec%9d%84-%eb%95%8c-%ea%b0%92-%ec%b1%84%ec%9b%8c%ec%84%9c-%eb%b0%98%ed%99%98" aria-label="앵커">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// 1. {값1, 값2} 형태로 리턴하면
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> {map[complement], i}; 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 2. 컴파일러가 &#34;아, 반환 타입이 vector&lt;int&gt;니까&#34;라고 인식하고
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 3. 자동으로 아래와 같이 변환해서 처리합니다.
+</span></span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> temp <span style="color:#f92672">=</span> {map[complement], i};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> temp;</span></span></code></pre></div></div>
+<ul>
+<li>과거 C++(C++98)에서는 <code>vector</code>를 만들고 <code>push_back</code>을 한 뒤 리턴해야 했지만, 이제는 중괄호 <code>{ }</code> 만으로 즉석에서 객체를 생성해 반환할 수 있어 코드가 훨씬 간결해졌습니다.</li>
+</ul>
+
+          
+          
+          
+        </div>
+        
+        
+  <details class="mt-2 mb-5 overflow-hidden rounded-lg ms-0 ps-5">
+    
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 -ms-5 ps-5 dark:bg-primary-800 dark:text-neutral-100">
+    c&#43;&#43; -
+    이 글은 시리즈의 일부입니다.
+  </summary>
+  
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        부분 :
+        이 글
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/series/c&#43;&#43;/smart-pointer/">
+          부분 1:
+          Smart Pointer
+        </a>
+      </div>
+    
+  
+
+
+  </details>
+
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_series/c&#43;&#43;/map.md"
+          data-oid-likes="likes_series/c&#43;&#43;/map.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="맨 위로 스크롤"
+    title="맨 위로 스크롤">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 로 제공됨
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="검색"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="닫기 (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

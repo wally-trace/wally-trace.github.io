@@ -7,12 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>© 2025 </copyright>
-    <atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Dec 2025 14:31:49 -0500</lastBuildDate><atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Classic Coding Patterns</title>
+      <link>http://localhost:1313/series/coding-pattern/</link>
+      <pubDate>Wed, 31 Dec 2025 14:31:49 -0500</pubDate>
+      
+      <guid>http://localhost:1313/series/coding-pattern/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>C&#43;&#43;</title>
       <link>http://localhost:1313/series/c&#43;&#43;/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 31 Dec 2025 10:15:03 -0500</pubDate>
       
       <guid>http://localhost:1313/series/c&#43;&#43;/</guid>
       <description></description>
@@ -20,9 +30,19 @@
     </item>
     
     <item>
+      <title>Review mock coding interview</title>
+      <link>http://localhost:1313/series/coding-interview/</link>
+      <pubDate>Thu, 25 Dec 2025 12:36:56 -0500</pubDate>
+      
+      <guid>http://localhost:1313/series/coding-interview/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>LeetCode 75</title>
       <link>http://localhost:1313/series/leetcode75/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 Dec 2025 15:51:36 -0500</pubDate>
       
       <guid>http://localhost:1313/series/leetcode75/</guid>
       <description></description>

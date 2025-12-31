@@ -1,5 +1,5 @@
 ---
 title: "Series"
-layout: "list"
+layout: "terms"
 groupByYear: false
 ---

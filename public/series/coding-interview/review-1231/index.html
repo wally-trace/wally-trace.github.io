@@ -15,8 +15,8 @@
 
   
   
-    <title>1. Hugo 설치하기 &middot; Wally Trace</title>
-    <meta name="title" content="1. Hugo 설치하기 &middot; Wally Trace">
+    <title>Review 12/31 &middot; Wally Trace</title>
+    <meta name="title" content="Review 12/31 &middot; Wally Trace">
   
 
   
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/series/leetcode75/01-install/">
+  <link rel="canonical" href="http://localhost:1313/series/coding-interview/review-1231/">
   
 
   
@@ -32,20 +32,23 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/series/leetcode75/01-install/">
+  <meta property="og:url" content="http://localhost:1313/series/coding-interview/review-1231/">
   <meta property="og:site_name" content="Wally Trace">
-  <meta property="og:title" content="1. Hugo 설치하기">
-  <meta property="og:description" content="여기부터 본문을 작성하면 됩니다. Hugo 설치는 매우 간단합니다…">
+  <meta property="og:title" content="Review 12/31">
+  <meta property="og:description" content="LeeCode ID: #643 Maximum Average Subarray 1 (Programming language: C&#43;&#43;) The “Off-By-One” Blid Spot out-of-bound가 발생할 수 있는 코드를 작성했음. index를 iterate할 때, 잘 따져봐야 함.">
   <meta property="og:locale" content="ko_kr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="series">
-    <meta property="article:published_time" content="2023-12-23T00:00:00+00:00">
-    <meta property="article:modified_time" content="2023-12-23T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-12-31T14:57:30-05:00">
+    <meta property="article:modified_time" content="2025-12-31T14:57:30-05:00">
+      <meta property="og:see_also" content="http://localhost:1313/series/coding-interview/classic-patterns/">
+      <meta property="og:see_also" content="http://localhost:1313/series/coding-interview/review-1225/">
+      <meta property="og:see_also" content="http://localhost:1313/series/coding-interview/review-1223/">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="1. Hugo 설치하기">
-  <meta name="twitter:description" content="여기부터 본문을 작성하면 됩니다. Hugo 설치는 매우 간단합니다…">
+  <meta name="twitter:title" content="Review 12/31">
+  <meta name="twitter:description" content="LeeCode ID: #643 Maximum Average Subarray 1 (Programming language: C&#43;&#43;) The “Off-By-One” Blid Spot out-of-bound가 발생할 수 있는 코드를 작성했음. index를 iterate할 때, 잘 따져봐야 함.">
 
   
   
@@ -82,6 +85,8 @@
   
   
   
+  
+    
   
   
     
@@ -90,8 +95,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.f41394a5c0e10c1cf8a65888f77e21ec279d86842cd26f2d94fc9956dfaa3240ba32a773ef895535ec8fa317a1eeeaeeecb64add401d2082d37bf1031716a0f9.css"
-    integrity="sha512-9BOUpcDhDBz4pliI934h7CedhoQs0m8tlPyZVt&#43;qMkC6Mqdz74lVNeyPoxeh7uru7LZK3UAdIILTe/EDFxag&#43;Q==">
+    href="/css/main.bundle.min.471897447581d019b7dbf035a0df16880e99b1536283779d349613a1106d0d59e2ba51127129c70db3ef3ce57d21192548e0efe4db31201db0453de09d9930a6.css"
+    integrity="sha512-RxiXRHWB0Bm32/A1oN8WiA6ZsVNig3edNJYToRBtDVniulEScSnHDbPvPOV9IRklSODv5NsxIB2wRT3gnZkwpg==">
 
   
   
@@ -196,25 +201,25 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Series",
-    "name": "1. Hugo 설치하기",
-    "headline": "1. Hugo 설치하기",
+    "name": "Review 12\/31",
+    "headline": "Review 12\/31",
     
     "inLanguage": "ko-kr",
-    "url" : "http://localhost:1313/series/leetcode75/01-install/",
+    "url" : "http://localhost:1313/series/coding-interview/review-1231/",
     "author" : {
       "@type": "Person",
       "name": ""
     },
-    "copyrightYear": "2023",
-    "dateCreated": "2023-12-23T00:00:00\u002b00:00",
-    "datePublished": "2023-12-23T00:00:00\u002b00:00",
+    "copyrightYear": "2025",
+    "dateCreated": "2025-12-31T14:57:30-05:00",
+    "datePublished": "2025-12-31T14:57:30-05:00",
     
-    "dateModified": "2023-12-23T00:00:00\u002b00:00",
+    "dateModified": "2025-12-31T14:57:30-05:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "8"
+    "wordCount": "26"
   }]
   </script>
 
@@ -236,6 +241,15 @@
   
 </head>
 
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
 
 
@@ -459,7 +473,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        1. Hugo 설치하기
+        Review 12/31
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -511,7 +525,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2023-12-23T00:00:00&#43;00:00">2023년 12월 23일</time><span class="px-2 text-primary-500">&middot;</span><span>8 단어수</span><span class="px-2 text-primary-500">&middot;</span><span title="읽는 시간">1 분</span>
+      <time datetime="2025-12-31T14:57:30-05:00">2025년 12월 31일</time><span class="px-2 text-primary-500">&middot;</span><span>26 단어수</span><span class="px-2 text-primary-500">&middot;</span><span title="읽는 시간">1 분</span>
     
 
     
@@ -581,7 +595,7 @@
     
   <summary
     class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 -ms-5 ps-5 dark:bg-primary-800 dark:text-neutral-100">
-    leetcode75 -
+    coding-interview -
     이 글은 시리즈의 일부입니다.
   </summary>
   
@@ -589,8 +603,38 @@
     
       <div
         class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
-        부분 :
+        <a href="/series/coding-interview/review-1223/">
+          부분 1:
+          Review 12/23
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/series/coding-interview/review-1225/">
+          부분 2:
+          Review 12/25
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        부분 3:
         이 글
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/series/coding-interview/classic-patterns/">
+          부분 3:
+          Classic Patterns
+        </a>
       </div>
     
   
@@ -600,8 +644,17 @@
 
 
         <div class="article-content max-w-prose mb-20">
-          <p>여기부터 본문을 작성하면 됩니다.
-Hugo 설치는 매우 간단합니다&hellip;</p>
+          <ul>
+<li><strong>LeeCode ID</strong>: <a href="https://leetcode.com/problems/maximum-average-subarray-i/description/?envType=study-plan-v2&amp;envId=leetcode-75"  target="_blank">#643 Maximum Average Subarray 1</a> (Programming language: C++)
+<ul>
+<li>The &ldquo;Off-By-One&rdquo; Blid Spot
+<ul>
+<li>out-of-bound가 발생할 수 있는 코드를 작성했음. index를 iterate할 때, 잘 따져봐야 함.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
           
           
@@ -613,7 +666,7 @@ Hugo 설치는 매우 간단합니다&hellip;</p>
     
   <summary
     class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 -ms-5 ps-5 dark:bg-primary-800 dark:text-neutral-100">
-    leetcode75 -
+    coding-interview -
     이 글은 시리즈의 일부입니다.
   </summary>
   
@@ -621,8 +674,38 @@ Hugo 설치는 매우 간단합니다&hellip;</p>
     
       <div
         class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
-        부분 :
+        <a href="/series/coding-interview/review-1223/">
+          부분 1:
+          Review 12/23
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/series/coding-interview/review-1225/">
+          부분 2:
+          Review 12/25
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        부분 3:
         이 글
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/series/coding-interview/classic-patterns/">
+          부분 3:
+          Classic Patterns
+        </a>
       </div>
     
   
@@ -650,8 +733,8 @@ Hugo 설치는 매우 간단합니다&hellip;</p>
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_series/leetcode75/01-install.md"
-          data-oid-likes="likes_series/leetcode75/01-install.md"></script>
+          data-oid="views_series/coding-interview/review-1231.md"
+          data-oid-likes="likes_series/coding-interview/review-1231.md"></script>
       
     </section>
 

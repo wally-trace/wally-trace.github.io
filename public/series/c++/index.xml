@@ -7,7 +7,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>© 2025 </copyright>
-    <atom:link href="http://localhost:1313/series/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Dec 2025 10:15:03 -0500</lastBuildDate><atom:link href="http://localhost:1313/series/c++/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Map</title>
+      <link>http://localhost:1313/series/c&#43;&#43;/map/</link>
+      <pubDate>Wed, 31 Dec 2025 10:15:03 -0500</pubDate>
+      
+      <guid>http://localhost:1313/series/c&#43;&#43;/map/</guid>
+      <description>C++로 LeetCode에서 HashMap을 사용하려면 **std::unordered_map**을 사용해야 합니다.
+C++ 문법이 낯설더라도 알고리즘 문제 풀이에 필요한 핵심 패턴은 정해져 있습니다. 가장 자주 쓰이는 문법과 대표적인 예제인 Two Sum 문제를 통해 설명해 드리겠습니다.
+1. C++ HashMap 핵심 문법 (std::unordered_map) # C++에서는 map이 아닌 unordered_map이 해시맵(Hash Table)입니다. (map은 정렬된 트리 구조라 속도가 다릅니다.)
+1) 선언 및 라이브러리 추가 # #include <unordered_map> // 필수 헤더 #include <iostream> using namespace std; // std:: 생략 가능 // 선언: unordered_map<Key타입, Value타입> 변수명; unordered_map<string, int> myMap; 2) 데이터 추가 (Insert) # myMap["apple"] = 10; // 가장 직관적인 방법 (추천) myMap.insert({"banana", 20}); 3) 데이터 검색 (Find) - 가장 중요! # LeetCode에서 “이 키가 존재하는가?“를 확인할 때 find() 메서드를 사용합니다.
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Smart Pointer</title>
+      <link>http://localhost:1313/series/c&#43;&#43;/smart-pointer/</link>
+      <pubDate>Tue, 23 Dec 2025 17:09:46 -0500</pubDate>
+      
+      <guid>http://localhost:1313/series/c&#43;&#43;/smart-pointer/</guid>
+      <description>C++에서는 기본적으로 new로 객체를 생성하고 delete로 해제해야 한다. 하지만, 이 작업을 사람이 직접 관리하다 보면 메모리 누수(memory leak), 이중 해제(double free), dangling pointer같은 문제가 발생하게 된다.
+그래서 C++에서는 스마트 포인터(smart pointer)를 사용함으로써 메모리를 안전하게 자동 관리하도록 한다.
+객체의 소유권을 명확히 하고, 소유권이 끝나면 자동으로 메모리를 정리한다. Smart pointer
+Smart pointer는 객체가 범위(scope)를 벗어날 때 destructor가 자동으로 메모리를 해제한다. C에서는 할당된 메모리에 대해서 개발자가 free()를 해줘야 하는 반면에, C++에서는 compiler가 삽입한 destructor가 자동으로 해제한다. Move Constructor
+</description>
+      
+    </item>
     
   </channel>
 </rss>

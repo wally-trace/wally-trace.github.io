@@ -4,5 +4,38 @@
 
   <url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2025-12-31T14:57:30-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/series/coding-interview/review-1231/</loc>
+    <lastmod>2025-12-31T14:57:30-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/series/coding-pattern/sliding-window/</loc>
+    <lastmod>2025-12-31T14:31:49-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/series/c&#43;&#43;/map/</loc>
+    <lastmod>2025-12-31T10:15:03-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/series/coding-interview/classic-patterns/</loc>
+    <lastmod>2025-12-25T12:36:56-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/series/coding-interview/review-1225/</loc>
+    <lastmod>2025-12-25T11:40:30-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/series/c&#43;&#43;/smart-pointer/</loc>
+    <lastmod>2025-12-23T17:09:46-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/series/coding-interview/review-1223/</loc>
+    <lastmod>2025-12-23T16:11:36-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/series/leetcode75/345/</loc>
+    <lastmod>2025-12-23T15:51:36-05:00</lastmod>
   </url>
 </urlset>

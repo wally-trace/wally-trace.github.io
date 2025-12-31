@@ -1,0 +1,50 @@
+/* 시리즈 안내 요약 부분 숨기기 */
+summary.py-1.text-lg.font-semibold.cursor-pointer.bg-primary-200 {
+    display: none !important;
+}
+
+/* 요약 부분을 감싸고 있는 전체 시리즈 박스 숨기기 */
+details.mt-0.overflow-hidden.rounded-lg.bg-neutral-100 {
+    display: none !important;
+}
+
+body {
+#  background: red !important;
+}
+
+/* 1. 전체 컨테이너 폭 확장 (헤더, 본문, 푸터를 포함하는 틀) */
+.max-w-screen-xl {
+  max-width: 1340px !important; /* 1280~1360px */ 
+}
+
+/* prose를 감싸는 상위 제한 해제 (이게 없어서 90ch가 안 먹음) */
+.max-w-prose {
+    max-width: none !important;
+}
+
+/* 2. 글 본문은 읽기 최적 폭 유지 */
+.prose {
+    max-width: 82ch !important;    /* ⭐ 핵심 */
+    margin-left: 0 !important;
+    margin-right: auto;
+#    line-height: 1.5 !important;
+}
+
+/* 3. 본문이 너무 붙지 않게 패딩 */
+main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* 4. 코드 블록은 가로 스크롤 허용 */
+.prose pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* 5. 모바일 대응 */
+@media (max-width: 1024px) {
+    .prose {
+        max-width: 100% !important;
+    }
+}

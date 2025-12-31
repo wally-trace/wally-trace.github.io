@@ -17,13 +17,15 @@ disableLanguages = ["en"]
 
 [params]
   # 시리즈 카드 뷰 설정 (CPUU님 스타일 핵심)
-  showSeries = true
+  showSeries = false
   showSeriesImage = true
   seriesCardView = true    # 목록이 아닌 바둑판 카드형태로 설정
   
   # 기타 UI 설정
   showLanguageSwitcher = false # 다국어 비활성
   backgroundCode = false
+
+  assets = ["css/custom.css"]
 
 # [홈 화면 설정] - 최근 글 리스트 형태
 [params.homepage]
@@ -36,3 +38,17 @@ disableLanguages = ["en"]
   groupByYear = false   # 연도별로 카드를 묶어서 보여주는 기능을 끕니다 (2023, 0001 헤더 제거)
   showTime = false      # 시리즈 카드 옆에 날짜가 나오는 것이 싫다면 이것도 함께 꺼주면 깔끔합니다
   showTermCount = true  # 시리즈에 포함된 글 개수를 보여줄지 여부 (선택사항)
+  cardView = true
+
+[params.article]
+  showSeries = false
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+#[params.list]
+#  cardView = false
+#[params.term]
+#  cardView = true
